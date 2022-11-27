@@ -1,0 +1,138 @@
+<html>
+  <style>
+    .main_div {
+      background-repeat: repeat repeat;
+      background-size: cover;
+      margin: 0%;
+      padding: 0%;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+    }
+
+    .overlay {
+      position: absolute;
+      /* Sit on top of the page content */
+      display: block;
+      /* Hidden by default */
+      width: 100%;
+      /* Full width (cover the whole page) */
+      height: 100%;
+      /* Full height (cover the whole page) */
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 70, 120, .5);
+      /* Black background with opacity */
+      z-index: 1;
+      /* Specify a stack order in case you're using a different order for other elements */
+    }
+
+    body {
+      margin: 0%;
+      margin-top: 3%;
+      background-color: #033455;
+      padding: 0%;
+      color: white;
+    }
+
+    #contentbox {
+      padding: 3%;
+      z-index: 3;
+    }
+
+    .main_header {
+      font-size: 14px;
+      text-align: center;
+    }
+
+    .results_row {
+      width: 80%;
+      margin: 12% 10% 10% 10%;
+      padding-bottom: 5%;
+      position: absolute;
+      top: 0%;
+    }
+
+    .column {
+      float: left;
+    }
+
+    .row {
+      height: 2%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+      content: "";
+      display: table;
+      clear: both;
+      height: 2%;
+      margin-bottom: 2%;
+    }
+
+    .platform_icon {
+      width: 100%;
+      height: 38px;
+      margin-top: 0px;
+      padding-top: 0px;
+    }
+
+    .tag_button {
+      padding: 2px 5px 3px 5px;
+      margin: 0px;
+      background-color: #5d6274;
+      border-style: none;
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: -12px;
+    }
+
+    #search_text {
+      width: 25%;
+      height: 22%;
+    }
+
+    #input_box {
+      padding: .5% .7% .5% .7%;
+      width: 26%;
+      font-size: 14px;
+      border: none;
+      border-radius: .755rem;
+      position: relative;
+    }
+
+    #search_button {
+      width: 5rem;
+      padding: .25rem .6rem .25rem .6rem;
+      font-weight: 600;
+      color: white;
+      background-color: rgba(0, 0, 0, .05);
+      border-color: rgba(255, 255, 255, .6);
+    }
+
+    #search_button:hover {
+      border-color: white;
+      background-color: rgba(0, 0, 0, .2)
+    }
+  </style>
+  <body>
+    <div class="main_div">
+      <center>
+        <input id="input_box" type="text" name="search" placeholder="Enter a topic..." required="" autocomplete="off">
+        <span style="display:block;font-size:1.7rem;">&nbsp;</span>
+        <button onclick="search();" id="search_button">Search</button>
+      </center>
+      <div class="results_row"> RESULTS_FILL </div>
+    </div>
+    <script>
+      var query = document.getElementById("input_box");
+
+      function search() {
+        window.location.href = "/search?query=" + query.value.replaceAll(" ", "+");
+      }
+    </script>
+  </body>
+</html>
